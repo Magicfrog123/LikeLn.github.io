@@ -1,199 +1,31 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>仿百度搜索</title>
+    <title>全屏背景图片</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+        /* 关键样式：确保根元素占满视口 */
+        html, body {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .logo {
-            margin: 100px 0 30px;
-        }
-        .search-box {
-            width: 580px;
-            max-width: 90%;
-            position: relative;
-        }
-        .search-input {
+            height: 100%;
             width: 100%;
-            padding: 12px 20px;
-            border: 1px solid #dfe1e5;
-            border-radius: 24px;
-            font-size: 16px;
-            outline: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden; /* 防止滚动条出现 */
         }
-        .search-input:hover, .search-input:focus {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .search-button {
-            background-color: #4d90fe;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            margin: 20px 5px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .search-button:hover {
-            background-color: #357ae8;
+        
+        /* 全屏背景容器 */
+        .fullscreen-bg {
+            background-image: url('20250723161313.jpg'); /* 替换为你的图片URL */
+            background-size: cover;      /* 关键：图片按比例缩放覆盖整个区域 */
+            background-position: center; /* 图片居中显示 */
+            background-repeat: no-repeat; /* 禁止重复 */
+            height: 100%;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <!-- Logo -->
-    <div class="logo">
-        <img src="https://www.baidu.com/img/flexible/logo/pc/result.png" alt="Logo" height="92">
-    </div>
-
-    <!-- 搜索表单 -->
-    <div class="search-box">
-        <form action="https://www.baidu.com/s" method="get" target="_blank">
-            <input type="text" class="search-input" name="wd" placeholder="请输入搜索内容..." autofocus>
-            <div style="text-align: center;">
-                <button type="submit" class="search-button">百度搜索</button>
-                <button type="button" class="search-button" onclick="alert('暂未实现')">幸运一下</button>
-            </div>
-            <!-- 站内搜索参数（需替换域名） -->
-            <input type="hidden" name="si" value="www.yourdomain.com">
-            <input type="radio" name="s" value="" checked style="display: none;">
-        </form>
-    </div>
-
-    <!-- 其他搜索引擎链接 -->
-    <div style="margin-top: 20px; font-size: 13px;">
-        <a href="#" onclick="switchToGoogle()">Google</a> | 
-        <a href="#" onclick="switchToBing()">Bing</a>
-    </div>
-
-    <script>
-        // 切换搜索引擎示例（需完善）
-        function switchToGoogle() {
-            document.querySelector('form').action = 'https://www.google.com/search';
-            alert('已切换至Google');
-        }
-        function switchToBing() {
-            document.querySelector('form').action = 'https://www.bing.com/search';
-            alert('已切换至Bing');
-        }
-
-        // 输入验证
-        document.querySelector('form').onsubmit = function() {
-            const input = document.querySelector('.search-input');
-            if (!input.value.trim()) {
-                alert('搜索内容不能为空！');
-                return false;
-            }
-        };
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>仿百度搜索</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .logo {
-            margin: 100px 0 30px;
-        }
-        .search-box {
-            width: 580px;
-            max-width: 90%;
-            position: relative;
-        }
-        .search-input {
-            width: 100%;
-            padding: 12px 20px;
-            border: 1px solid #dfe1e5;
-            border-radius: 24px;
-            font-size: 16px;
-            outline: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .search-input:hover, .search-input:focus {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .search-button {
-            background-color: #4d90fe;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            margin: 20px 5px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .search-button:hover {
-            background-color: #357ae8;
-        }
-    </style>
-</head>
-<body>
-    <!-- Logo -->
-    <div class="logo">
-        <img src="https://www.baidu.com/img/flexible/logo/pc/result.png" alt="Logo" height="92">
-    </div>
-
-    <!-- 搜索表单 -->
-    <div class="search-box">
-        <form action="https://www.baidu.com/s" method="get" target="_blank">
-            <input type="text" class="search-input" name="wd" placeholder="请输入搜索内容..." autofocus>
-            <div style="text-align: center;">
-                <button type="submit" class="search-button">百度搜索</button>
-                <button type="button" class="search-button" onclick="alert('暂未实现')">幸运一下</button>
-            </div>
-            <!-- 站内搜索参数（需替换域名） -->
-            <input type="hidden" name="si" value="www.yourdomain.com">
-            <input type="radio" name="s" value="" checked style="display: none;">
-        </form>
-    </div>
-
-    <!-- 其他搜索引擎链接 -->
-    <div style="margin-top: 20px; font-size: 13px;">
-        <a href="#" onclick="switchToGoogle()">Google</a> | 
-        <a href="#" onclick="switchToBing()">Bing</a>
-    </div>
-
-    <script>
-        // 切换搜索引擎示例（需完善）
-        function switchToGoogle() {
-            document.querySelector('form').action = 'https://www.google.com/search';
-            alert('已切换至Google');
-        }
-        function switchToBing() {
-            document.querySelector('form').action = 'https://www.bing.com/search';
-            alert('已切换至Bing');
-        }
-
-        // 输入验证
-        document.querySelector('form').onsubmit = function() {
-            const input = document.querySelector('.search-input');
-            if (!input.value.trim()) {
-                alert('搜索内容不能为空！');
-                return false;
-            }
-        };
-    </script>
+    <div class="fullscreen-bg"></div>
 </body>
 </html>
